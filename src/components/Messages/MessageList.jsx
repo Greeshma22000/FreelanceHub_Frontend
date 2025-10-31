@@ -30,7 +30,7 @@ export const MessageList = () => {
   const fetchConversations = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:5000/api/messages/conversations', {
+      const response = await fetch(`${import.meta.env.VITE_SERVER_URI}/api/messages/conversations`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
