@@ -61,7 +61,7 @@ export const CreateGig = () => {
           'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
-          formData,
+          ...formData,
            pricing: {
               basic: {
                   ...formData.pricing.basic,
@@ -69,14 +69,15 @@ export const CreateGig = () => {
                   deliveryTime: Number(formData.pricing.basic.deliveryTime),
                   revisions: Number(formData.pricing.basic.revisions)
                 }
-              }
+              },
+              userId: user?._id
           })
       });
 
-      // const data = await response.json();
+      const data = await response.json();
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Failed to create gig');
+        // const errorData = await response.json();
+        throw new Error(data.message || 'Failed to create gig');
       }
 
       navigate('/my-gigs');
