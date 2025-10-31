@@ -27,7 +27,7 @@ export const ClientDashboard = () => {
   const fetchDashboardData = async () => {
     try {
       setLoading(true);
-      const ordersRes = await fetch(`${process.env.SERVER_URI}/api/orders?role=buyer&limit=5`, {
+      const ordersRes = await fetch(`${process.env.VITE_SERVER_URI}/api/orders?role=buyer&limit=5`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
 
