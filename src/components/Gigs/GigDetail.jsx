@@ -21,7 +21,7 @@ export const GigDetail = () => {
   const fetchGig = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`http://localhost:5000/api/gigs/${id}`);
+      const response = await fetch(`${import.meta.env.VITE_SERVER_URI}/api/gigs/${id}`);
       
       if (!response.ok) {
         throw new Error('Gig not found');
