@@ -9,7 +9,7 @@ export const useSocket = () => {
   useEffect(() => {
     if (token && user) {
       // Initialize socket connection
-      socketRef.current = io(import.meta.env.VITE_API_URL || 'http://localhost:5000', {
+      socketRef.current = io(import.meta.env.VITE_SERVER_URI || {/*'http://localhost:5000'*/}, {
         auth: {
           token
         }

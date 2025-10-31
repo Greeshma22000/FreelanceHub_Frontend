@@ -38,7 +38,7 @@ export const OrderList = () => {
         queryParams.append('status', filters.status);
       }
 
-      const response = await fetch(`http://localhost:5000/api/orders?${queryParams}`, {
+      const response = await fetch(`${import.meta.env.VITE_SERVER_URI}/api/orders?${queryParams}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }

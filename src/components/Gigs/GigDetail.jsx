@@ -45,7 +45,7 @@ export const GigDetail = () => {
     if (!gig) return;
 
     try {
-      const response = await fetch('http://localhost:5000/api/payments/create-checkout-session', {
+      const response = await fetch(`${import.meta.env.VITE_SERVER_URI}/api/payments/create-checkout-session`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
